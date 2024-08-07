@@ -5,7 +5,13 @@ import './Home.css';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const userName = useAppSelector((state) => `Hi ${state.profile.userData?.name}, nice to meet you` ?? 'please login/register your accaunt');
+  const userName = useAppSelector((state) => {
+    if (state.profile.userData) {
+      return `Hi ${state.profile.userData.name}, welcome back! ⭐️`;
+    }
+    else return 'Hi, sign in or sign up! 🌞';
+  });
+
   return (
     <div className='home'>
       <div className='welcome'>{userName}</div>

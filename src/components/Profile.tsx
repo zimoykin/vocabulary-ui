@@ -3,10 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store';
 import { setUserData } from '../features/profile/profileSlice';
 import { fetchUserData } from '../api/get-user-data';
+import { toast } from 'react-toastify';
 
 const ProfileCards: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
     const userData = useSelector((state: RootState) => state.profile.userData);
+
+    toast.warn('under construction!', {
+        toastId: ProfileCards.name,
+    });
+
 
     useEffect(() => {
         const getUserData = async () => {

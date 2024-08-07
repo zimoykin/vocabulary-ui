@@ -4,6 +4,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/auth/authSlice';
+import { toast } from 'react-toastify';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -24,18 +25,26 @@ const Login: React.FC = () => {
       const host = process.env.REACT_APP_API_URL;
       const response = await axios.post(`${host}/api/v1/auth/login`, { email, password });
       if (response.status === 200 && response?.data?.accessToken) {
-        localStorage.setItem('token', response.data.accessToken);
         localStorage.setItem('refresh', response.data.refreshToken);
+
+        toast.success('Login successful!', {
+          toastId: Login.name,
+        });
 
         dispatch(
           login(response.data.accessToken)
         );
         navigate('/profile');
       } else {
+        toast.error('Login failed!', {
+          toastId: Login.name,
+        });
         setError('Login failed. Please try again.');
       }
     } catch (error) {
-      console.error('Error during login', error);
+      toast.error('Login failed!', {
+        toastId: Login.name,
+      });
       setError('Login failed. Please try again.');
     }
   };

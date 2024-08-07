@@ -12,7 +12,13 @@ const NavBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
-  const userName = useAppSelector((state) => `${state.profile.userData?.name ?? 'user'} (profile)` ?? 'Profile');
+  const userName = useAppSelector((state) => {
+    debugger;
+    if (state.profile.userData) {
+      return state.profile.userData.name;
+    }
+    else return 'Profile';
+  });
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
@@ -23,9 +29,10 @@ const NavBar: React.FC = () => {
   };
 
   const handleLogout = () => {
+    debugger;
     dispatch(logout());
     dispatch(clearUserData());
-    navigate('/');
+    setTimeout(() => navigate('/login'), 1000); // Wait for 1 second before navigate('login');
   };
 
   return (
