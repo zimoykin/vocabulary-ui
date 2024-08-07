@@ -1,7 +1,7 @@
 import React from 'react';
 import './Competition.css';
 
-const Competiton: React.FC = () => {
+const Competition: React.FC = () => {
     return (
         <div className='competition'>
             <h1>Competition Page</h1>
@@ -9,4 +9,4 @@ const Competiton: React.FC = () => {
     );
 };
 
-export default Competiton;
+export default Competition;

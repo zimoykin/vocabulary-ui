@@ -2,64 +2,107 @@
 .home {
     text-align: center;
     background-color: lightgray;
-    /* margin: 20px; */
+    height: calc(100vh - 80px);
+    /* Full viewport height minus the navbar height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
+    align-items: center;
+    /* Center content horizontally */
+    padding: 0;
+    /* Remove padding if not needed */
+    margin: 0;
+    /* Remove margin to ensure full viewport usage */
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
 }
 
 .welcome {
     padding: 1rem;
-    align-items: start;
+    font-size: 1.5rem;
+    /* Larger font for better readability */
 }
 
 .button-row {
     display: flex;
     margin-bottom: 10px;
-    min-height: 4em;
+    height: calc((100% - 40px) / 3);
+    /* Increased height for better visibility */
+    gap: 10px;
+    /* Space between buttons */
+    justify-content: center;
+    /* Center buttons horizontally */
+    width: 100%;
 }
 
 .button-row .button-large {
     flex: 3;
     padding: 20px;
-    height: 53%;
-    font-size: 1rem;
+    /* height: calc((100% - 40px) / 3); */
+    font-size: 1.2rem;
+    /* Increase font size */
+    border-radius: 5px;
+    /* Rounded corners for a better look */
+    text-transform: uppercase;
+    box-shadow: gray 0 0 20px;
 }
 
 .button-row .button-small {
     flex: 2;
+    /* height: calc((100% - 40px) / 3); */
     padding: 20px;
-    height: 33%;
     font-size: 1rem;
+    /* Slightly smaller font size */
+    border-radius: 5px;
+    /* Rounded corners for consistency */
+    text-transform: uppercase;
+    box-shadow: gray 0 0 20px;
 }
 
 .button-row button {
     width: 100%;
     border: none;
-    background-color: #333;
-    color: white;
-    height: 33%;
+    /* height: calc((100% - 40px) / 3); */
+    /* background-color: #333; */
+    /* color: white; */
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
 }
 
 .button-row button:hover {
     background-color: #555;
+    color: wheat;
+    font-size: xx-large;
+}
+
+.button-container {
+    width: 100vh;
+    height: 100vh;
+    margin: 0 200px;
 }
 
 /* Responsive layout */
 @media (max-width: 768px) {
     .button-row {
-        flex-direction: column;
         align-items: center;
-        /* Stack buttons vertically on small screens */
+        gap: 0;
+        height: calc((100% - 40px) / 3);
+        /* Remove gap between buttons in vertical stack */
     }
 
     .button-row .button-large,
     .button-row .button-small {
-        flex: none;
-        /* Reset flex properties for stacking */
+        /* flex: none; */
         width: 100%;
-        /* Ensure full width in vertical stack */
-        margin-bottom: 0px;
-        /* Space between stacked buttons */
-        padding: 0px;
+        height: 100%;
+        margin-bottom: 10px;
+        /* Add space between stacked buttons */
+        padding: 15px;
+        /* Adjust padding for better appearance on small screens */
+        font-size: 1rem;
+        /* Adjust font size for better fit */
     }
 
     .button-row .button-large:last-child,
@@ -67,4 +110,9 @@
         margin-bottom: 0;
         /* Remove bottom margin for the last button */
     }
+
+    .button-container {
+        width: 100%;
+    }
+
 }

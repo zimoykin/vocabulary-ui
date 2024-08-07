@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store';
-import { setUserData } from '../features/profile/profileSlice'; // Adjust the path as needed
+import { setUserData } from '../features/profile/profileSlice';
 import { fetchUserData } from '../api/get-user-data';
 
 const ProfileCards: React.FC = () => {

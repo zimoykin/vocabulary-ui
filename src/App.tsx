@@ -24,7 +24,7 @@ const App: React.FC = () => {
             <Route path="/flash-cards" element={<FlashCards />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/random" element={<Random />} />
-            <Route path="/competition" element={<Competition />} />
+            {/* <Route path="/competition" element={<Competition />} /> */}
             <Route path="/dictionary" element={<Dictionary />} />
             <Route path="/lesson" element={<Lesson />} />
             <Route path="/Registration" element={<Registration />} />
