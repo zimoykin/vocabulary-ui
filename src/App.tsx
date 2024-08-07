@@ -4,13 +4,15 @@ import Home from './components/home/Home';
 import FlashCards from './components/FlashCards';
 import Profile from './components/Profile';
 import Random from './components/Random';
-import Competition from './components/competition/Competition';
 import Dictionary from './components/Dictionary';
 import Lesson from './components/Lesson';
 import NavBar from './components/nav-bar/NavBar';
 import './App.css';
 import Registration from './components/register/Registration';
 import Login from './components/login/Login';
+import Competition from './components/competition/Competition';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const App: React.FC = () => {
   return (
@@ -24,13 +26,14 @@ const App: React.FC = () => {
             <Route path="/flash-cards" element={<FlashCards />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/random" element={<Random />} />
-            {/* <Route path="/competition" element={<Competition />} /> */}
+            <Route path="/competition" element={<Competition />} />
             <Route path="/dictionary" element={<Dictionary />} />
             <Route path="/lesson" element={<Lesson />} />
-            <Route path="/Registration" element={<Registration />} />
-            <Route path="/Login" element={<Login />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
+        <ToastContainer />
       </div>
     </Router>
   );
