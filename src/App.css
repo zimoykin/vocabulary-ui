@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.app-container {
+  max-width: 1028px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -32,7 +40,35 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  display: block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .app-container {
+    max-width: 100%;
+    margin: 0 auto;
+    /* padding: 1em; */
+    padding-top: 4em;
+  }
+
 }
