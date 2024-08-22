@@ -21,7 +21,6 @@ const ProfileCards: React.FC = () => {
                 dispatch(setUserData(JSON.parse(storedUserData)));
             } else {
                 try {
-                    debugger;
                     const data = await fetchUserData();
                     localStorage.setItem('userData', JSON.stringify(data));
                     dispatch(setUserData(data));

@@ -3,6 +3,7 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage
 import authReducer from './features/auth/authSlice';
 import profileReducer from './features/profile/profileSlice';
+import assesmentReducer from './features/assesment/assesmentSlice';
 
 
 // Persist configuration
@@ -16,12 +17,14 @@ const persistConfig = {
 // Create persisted reducers
 const persistedReducerAuth = persistReducer(persistConfig, authReducer);
 const persistedReducerUser = persistReducer(persistConfig, profileReducer);
+const persistedReducerAssesment = persistReducer(persistConfig, assesmentReducer);
 
 const store = configureStore({
 
   reducer: {
     auth: persistedReducerAuth,
     profile: persistedReducerUser,
+    assesment: persistedReducerAssesment
   },
   middleware: (getDefaultMiddleware: any) =>
     getDefaultMiddleware({

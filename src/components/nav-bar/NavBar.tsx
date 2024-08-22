@@ -6,19 +6,30 @@ import { useAppSelector } from '../../hooks';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../features/auth/authSlice';
 import { clearUserData } from '../../features/profile/profileSlice';
+import { fetchSearchWord } from '../../api/search-word';
+import { toast } from 'react-toastify';
 
 const NavBar: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+  const [searchValue, setSearchValue] = useState('');
+  // let searchValue = '';
   const userName = useAppSelector((state) => {
-    debugger;
+    // debugger;
     if (state.profile.userData) {
       return state.profile.userData.name;
     }
     else return 'Profile';
   });
+
+  const handleSubmit = async () => {
+    toast.warn(searchValue);
+    if (searchValue) {
+      const result = await fetchSearchWord(searchValue);
+    }
+  };
 
   const handleToggle = () => {
     setIsMobile(!isMobile);
@@ -29,7 +40,7 @@ const NavBar: React.FC = () => {
   };
 
   const handleLogout = () => {
-    debugger;
+    // debugger;
     dispatch(logout());
     dispatch(clearUserData());
     setTimeout(() => navigate('/login'), 1000); // Wait for 1 second before navigate('login');
@@ -46,7 +57,13 @@ const NavBar: React.FC = () => {
             <Link to="/" onClick={closeMobileMenu}>Home</Link>
           </li>
           <div className="search-container">
-            <input type="text" className="search-input" placeholder="Search..." />
+            <form onSubmit={handleSubmit}>
+              <input type="text" className="search-input"
+                placeholder="Search..."
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+            </form>
           </div>
           {isAuthenticated ? (
             <>

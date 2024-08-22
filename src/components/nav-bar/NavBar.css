@@ -108,6 +108,9 @@
   }
 }
 
+.search-container form {
+  display: flex;
+}
 
 .search-container {
   display: flex;

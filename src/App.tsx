@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home/Home';
-import FlashCards from './components/FlashCards';
+import FlashCards from './components/flash-cards/FlashCards';
 import Profile from './components/Profile';
 import Random from './components/Random';
 import Dictionary from './components/Dictionary';
